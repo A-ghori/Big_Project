@@ -19,9 +19,18 @@ let minSum = Infinity;
 for (let i=0 ; i<prices.length; i++){
     for(let j = i+1; j<prices.length; j++){
         let sum = prices[i] + prices [j]
-minSum = sum <= money && sum < minSum ? sum : minSum 
+if (sum <= money && sum < minSum) {
+minSum = sum
+}
+
+
+    // minSum = sum <= money && sum < minSum ? sum : minSum 
     }
 }
 // If no valid pair found, return original money
-    return minSum === Infinity ? money : money - minSum;
+    // return minSum === Infinity ? money : money - minSum;
+    if ( minSum === Infinity) {
+        return money 
+    }
+    return  money - minSum
 }
